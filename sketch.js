@@ -7,6 +7,7 @@ var engine, world;
 var box1, pig1,pig3;
 var backgroundImg,platform;
 var bird, slingshot;
+var gameState = "onSling";
 
 
 function preload() {
@@ -69,16 +70,64 @@ function draw(){
 }
 
 function mouseDragged(){
+    if(gameState !== "launched"){
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+}
 }
 
 
 function mouseReleased(){
     slingshot.fly();
+    gameState = "launched";
 }
 
 function keyPressed(){
     if(keyCode === 32){
-        slingshot.attach(bird.body);
+        //slingshot.attach(bird.body);
     }
 }
+
+/* data types:
+String - sequence of characters stored inside quotes
+Number
+Boolen - True and false
+Null - nothing or empty
+Undefined - no value has been assigned to a variable
+*/
+
+var string = "This is a string";
+console.log(string);
+
+var num = 100;
+console.log(num);
+
+var bool = true;
+console.log(bool);
+
+var object;
+console.log(object);
+
+object = null;
+console.log(object);
+
+// Data Structures - Array
+// Length - total number of items in the array, Indexing starts from 0.
+
+var arr1 = [1,2,3,4,5];
+console.log(arr1);
+
+var arr2 = ["name",12,true];
+console.log(arr2);
+console.log(arr2[1]);
+
+var arr3 = [[1,2],[3,4],[2,3]];
+console.log(arr3);
+console.log(arr3[1][1]);
+console.log(arr3[2][0]);
+console.log(arr3[0]);
+
+arr3.push("Chris");
+console.log(arr3);
+
+arr3.pop();
+console.log(arr3);
